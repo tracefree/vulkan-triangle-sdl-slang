@@ -233,14 +233,10 @@ bool create_shader_module(const std::vector<char>& code, VkShaderModule &r_shade
 }
 
 bool create_pipeline() {
-    std::vector<char> vert_shader_code = read_file("../../shaders/bin/triangle_vert.spv");
-    std::vector<char> frag_shader_code = read_file("../../shaders/bin/triangle_frag.spv");
+    std::vector<char> shader_code = read_file("../../shaders/bin/triangle.spv");
+    VkShaderModule shader_module;
 
-    VkShaderModule vert_shader_module;
-    VkShaderModule frag_shader_module;
-
-    if (!create_shader_module(vert_shader_code, vert_shader_module) || 
-        !create_shader_module(frag_shader_code, frag_shader_module)) {
+    if (!create_shader_module(shader_code, shader_module)) {
         print("Could not create shader modules!");
         return false;
     }
@@ -248,14 +244,14 @@ bool create_pipeline() {
     VkPipelineShaderStageCreateInfo vert_shader_stage_info {};
     vert_shader_stage_info.sType = VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_CREATE_INFO;
     vert_shader_stage_info.stage = VK_SHADER_STAGE_VERTEX_BIT;
-    vert_shader_stage_info.module = vert_shader_module;
-    vert_shader_stage_info.pName = "main";
+    vert_shader_stage_info.module = shader_module;
+    vert_shader_stage_info.pName = "vertex";
 
     VkPipelineShaderStageCreateInfo frag_shader_stage_info {};
     frag_shader_stage_info.sType = VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_CREATE_INFO;
     frag_shader_stage_info.stage = VK_SHADER_STAGE_FRAGMENT_BIT;
-    frag_shader_stage_info.module = frag_shader_module;
-    frag_shader_stage_info.pName = "main";
+    frag_shader_stage_info.module = shader_module;
+    frag_shader_stage_info.pName = "fragment";
 
     VkPipelineShaderStageCreateInfo shader_stages[] = {vert_shader_stage_info, frag_shader_stage_info};
 
@@ -364,8 +360,7 @@ bool create_pipeline() {
         return false;
     }
 
-    vkDestroyShaderModule(gVkDevice, vert_shader_module, nullptr);
-    vkDestroyShaderModule(gVkDevice, frag_shader_module, nullptr);
+    vkDestroyShaderModule(gVkDevice, shader_module, nullptr);
 
     return true;
 }
