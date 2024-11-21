@@ -21,3 +21,6 @@ Regarding the shaders, the compiled spirv files used by the executable are in `s
 
 ### Windows
 idk, you're on your own ¯\_(ツ)_/¯
+
+## License
+All source files are licensed under CC0.
