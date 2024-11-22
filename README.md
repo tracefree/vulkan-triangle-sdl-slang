@@ -17,7 +17,7 @@ cmake --build .
 ```
 
 The executable then gets created in `build/bin` if everything went right. 
-Regarding the shaders, the compiled spirv files used by the executable are in `shaders/bin` and their source code is in `shaders/src/triangle.slang`. If you want to modify it you'll have to compile it with [`slangc`](https://github.com/shader-slang/slang). The `shaders` directory contains a bash script with the compile commands I used, you will need to adjust path to the slangc binary to point to where it is installed on your system.
+Regarding the shader, it is compiled to bytecode and included with `shaders/bin/triangle.h` and its source code is in `shaders/src/triangle.slang`. If you want to modify it you'll have to compile it with [`slangc`](https://github.com/shader-slang/slang). The `shaders` directory contains a bash script with the compile commands I used, you will need to adjust path to the slangc binary to point to where it is installed on your system.
 
 ### Windows
 idk, you're on your own ¯\_(ツ)_/¯
