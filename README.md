@@ -1,4 +1,4 @@
-# Prosper
+# Vulkan Triangle
 Rendering a triangle using [Vulkan](https://www.vulkan.org/), the [Slang](https://shader-slang.com/) shader language, and [SDL3](https://wiki.libsdl.org/SDL3/FrontPage).
 
 ![prosper](https://github.com/user-attachments/assets/b6c25ff8-4819-4e0a-a845-8ec5e1df4333)

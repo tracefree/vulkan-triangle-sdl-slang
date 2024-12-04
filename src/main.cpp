@@ -60,7 +60,7 @@ SDL_AppResult SDL_AppInit(void **appstate, int argc, char **argv) {
     SDL_SetBooleanProperty(window_props, SDL_PROP_WINDOW_CREATE_BORDERLESS_BOOLEAN, false);
     SDL_SetBooleanProperty(window_props, SDL_PROP_WINDOW_CREATE_RESIZABLE_BOOLEAN, false);
     SDL_SetBooleanProperty(window_props, SDL_PROP_WINDOW_CREATE_VULKAN_BOOLEAN, true);
-    SDL_SetStringProperty(window_props, SDL_PROP_WINDOW_CREATE_TITLE_STRING, "Prosper");
+    SDL_SetStringProperty(window_props, SDL_PROP_WINDOW_CREATE_TITLE_STRING, "Vulkan Triangle");
     gWindow = SDL_CreateWindowWithProperties(window_props);
     if (gWindow == nullptr) {
         SDL_Log("Window could not be created! SDL error: %s\n", SDL_GetError());
